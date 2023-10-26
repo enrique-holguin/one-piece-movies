@@ -20,9 +20,7 @@ async function page({ params }: Params) {
             <Image
                 priority={true}
                 alt={movie?.data?.title!}
-                src={movie?.data?.images?.jpg?.large_image_url
-                    ? movie?.data?.images?.jpg?.large_image_url
-                    : '/images/No-Image-Placeholder.svg'}
+                src={movie?.data?.images?.jpg?.large_image_url!}
                 width={250}
                 height={250}>
             </Image>

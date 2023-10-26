@@ -32,6 +32,11 @@ function Card() {
     };
   }, []);
 
+  const handleImageError = (event: React.SyntheticEvent) => {
+    const imgElement = event.target as HTMLImageElement
+    imgElement.src = '/images/No-Image-Placeholder.svg';
+  };
+
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
@@ -44,6 +49,7 @@ function Card() {
               <Link href={`/movie/${movie.mal_id}`}>
                 <div className="relative w-full h-0" style={{ paddingBottom: '56.25%' }}>
                   <Image
+                    onError={handleImageError}
                     layout="fill"
                     objectFit="cover"
                     src={movie?.images?.jpg?.large_image_url}
