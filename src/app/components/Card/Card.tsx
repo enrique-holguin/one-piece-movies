@@ -42,7 +42,7 @@ function Card() {
             movies.data.map((movie) => <li key={movie.mal_id}>
               <div className='flex flex-col'>
                 <Link href={`/movie/${movie.title}`}>{movie.title}</Link>
-                <Image priority={true} alt={movie.title} width={400} height={400} src={movie?.images?.jpg?.large_image_url}></Image>
+                <Image priority={true} alt={movie.title} width={300} height={250} src={movie?.images?.jpg?.large_image_url}></Image>
                 <p>
                   <span>{movie.aired.string}</span>
                 </p>
