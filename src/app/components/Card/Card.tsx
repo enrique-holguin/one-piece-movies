@@ -44,6 +44,9 @@ function Card() {
                 <p>
                   <span>{movie.aired.string}</span>
                 </p>
+                <p>
+                  {movie.synopsis}
+                </p>
               </div>
             </li>)
           }
