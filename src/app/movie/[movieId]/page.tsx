@@ -23,7 +23,7 @@ async function page({ params }: Params) {
                         </li>
                     })}
                 </ul>
-                : 'No hay personas para mostrar'}
+                : "There's no characters to show"}
         </div>
     )
 }
