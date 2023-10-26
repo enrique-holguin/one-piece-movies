@@ -34,7 +34,7 @@ function Card() {
 
   return (
     <div>
-      {movies && movies.data.length > 0 && !loading
+      {movies && movies?.data?.length > 0 && !loading
         ? <ul className='grid grid-cols-4 gap-6 px-6 py-4'>
           {
             movies.data.map((movie) => <li key={movie.mal_id}>
