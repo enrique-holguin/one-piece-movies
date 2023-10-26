@@ -1,10 +1,17 @@
 'use client'
 
-import { ApiMovies as ApiResponse } from '@/app/types/movies.types'
-import Image from 'next/image';
-import Link from 'next/link';
+//React
 import React, { useEffect, useState } from 'react'
 
+//Components from Next
+import Image from 'next/image';
+import Link from 'next/link';
+
+//Types
+import { ApiMovies as ApiResponse } from '@/app/types/movies.types'
+
+//Services
+import { getAllMovies } from '../../../../services/getAllMovies';
 
 function Card() {
   const [movies, setMovies] = useState<ApiResponse | null>(null);
@@ -12,22 +19,13 @@ function Card() {
   const [errorFetch, setErrorFetch] = useState(false)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url = 'https://api.jikan.moe/v4/anime?q=one%20piece&type=Movie'
-        const response = await fetch(url);
-        const data = await response.json() as ApiResponse;
-        setMovies(data);
-      } catch (error) {
-        console.error(error);
-        setErrorFetch(true)
-      }
-      finally {
-        setLoading(false)
-      }
-    };
-
-    fetchData();
+    getAllMovies().then(movies => {
+      setMovies(movies)
+    }).catch(error => {
+      setErrorFetch(true)
+    }).finally(() => {
+      setLoading(false)
+    })
 
     return () => {
       setMovies(null);
