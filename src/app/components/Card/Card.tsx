@@ -48,8 +48,8 @@ function Card() {
             </li>)
           }
         </ul>
-        : loading ? 'Cargando' : 'No hay pelis'}
-      {errorFetch && <h2 className='bg-red-600'>Ocurrió un error</h2>}
+        : loading ? 'Loading' : 'No movies to show'}
+      {errorFetch && <h2 className='bg-red-600'>Occurs an error</h2>}
     </div>
   );
 }

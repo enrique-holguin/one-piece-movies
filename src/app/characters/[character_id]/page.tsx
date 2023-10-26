@@ -12,7 +12,9 @@ const fetchData = async (characterId: string) => {
     }
 }
 
-async function page({ params }: { params: { character_id: string } }) {
+type Params = { params: { character_id: string } }
+
+async function page({ params }: Params) {
     const { character_id } = params
     const character = await fetchData(character_id)
     console.log(character)

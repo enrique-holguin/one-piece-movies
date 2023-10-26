@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { getCharsByMovie } from '../../../../services/getCharsByMovie';
 
-async function page({ params }: {
+type Params = {
     params: {
         movieId: string
     }
-}) {
+}
+
+async function page({ params }: Params) {
     console.log(params)
     const { movieId } = params
     const characters = await getCharsByMovie(movieId)
